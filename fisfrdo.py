@@ -1,13 +1,12 @@
 import openpyxl
+udo_path = "c:/Users/typo/Documents/!!ГОС_ДИП_УД/УДОСТОВЕРЕНИЯ_ДАННЫЕ/удостоверения.xlsx"
+frdo_shablon = "c:/Users/typo/Documents/!!ГОС_ДИП_УД/!!!ФИСФРДО/Шаблон_апрель_2021.xlsx"
+wb_udo = openpyxl.load_workbook(filename = udo_path, data_only=True)
+ws_udo = wb_udo.active
+wb_frdo = openpyxl.load_workbook(filename = frdo_shablon, data_only=True)
+ws_frdo = wb_frdo.active
 
-wb = openpyxl.load_workbook(filename="openpyxl-удостоверения.xlsx", data_only=True)
-ws = wb.active
-print(ws["e3456"].value)
-print(ws["f3456"].value)
-print(ws["g3456"].value)
-print(ws["i3456"].value)
-print(ws["j3456"].value)
-print(ws["k3456"].value)
-print(ws["L3456"].value)
-print(ws["M3456"].value)
-print(ws["n3456"].value)
+r = ws_udo["D3485":"H3490"]
+for i in r:
+    for j in i:
+        print(j.value)
