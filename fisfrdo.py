@@ -20,5 +20,13 @@ r = ws_udo["A3499":"N3500"]
 #                                                       r[1][13].value))
 period = r[i][11].value
 volume = r[i][13].value
+#otch = r[1][10].value
+otch = "Викторовна"
+
 print(re.findall("[0-9]{4}", period))
 print(re.findall("[0-9]{1,3}", volume))
+if re.search(".*вич", otch):
+    print("муж")
+else:
+    print("жен")
+
