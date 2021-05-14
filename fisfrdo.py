@@ -8,25 +8,41 @@ ws_udo = wb_udo.active
 wb_frdo = openpyxl.load_workbook(filename = frdo_shablon, data_only=True)
 ws_frdo = wb_frdo.active
 
-i = 0
-r = ws_udo["A3499":"N3500"]
-# print("{0}    {1}    {2}    {3}    {4}    {5}    {6}    {7}".format(r[1][5].value,
-#                                                       r[1][6].value,
-#                                                       r[1][8].value,
-#                                                       r[1][9].value,
-#                                                       r[1][10].value,
-#                                                       r[1][11].value,
-#                                                       r[1][12].value,
-#                                                       r[1][13].value))
-period = r[i][11].value
-volume = r[i][13].value
-#otch = r[1][10].value
-otch = "Викторовна"
+i = 2
+r = ws_udo["A3499":"N3506"]
+if r[i][5].value is not None:
+    print(r[i][5].value is not None)
+    user = {"gosnomer":r[i][5].value,
+            "reg_nomer":r[i][6].value,
+            "fam":r[i][8].value,
+            "im":r[i][9].value,
+            "ot":r[i][10].value,
+            "period":r[i][11].value,
+            "tema":r[i][12].value,
+            "objem":r[i][13].value}
+    print("{0}    {1}    {2}    {3}    {4}    {5}    {6}    {7}".format(user["gosnomer"],
+                                                          r[i][6].value,
+                                                          r[i][8].value,
+                                                          r[i][9].value,
+                                                          r[i][10].value,
+                                                          r[i][11].value,
+                                                          r[i][12].value,
+                                                          r[i][13].value))
+    period = r[i][11].value
+    volume = r[i][13].value
+    #otch = r[i][10].value
+    otch = "Викторовна"
 
-print(re.findall("[0-9]{4}", period))
-print(re.findall("[0-9]{1,3}", volume))
-if re.search(".*вич", otch):
-    print("муж")
+    per = re.findall("[0-9]{4}", period)
+    for p in per:
+        print(p)
+    vol = re.findall("[0-9]{2,}", volume)
+    for v in vol:
+        print(v)
+    if re.search(".*вич", otch):
+        print("муж")
+    else:
+        print("жен")
+
 else:
-    print("жен")
-
+    print("Пустая строка")
