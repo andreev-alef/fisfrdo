@@ -11,7 +11,7 @@ html_str = '''
     <p><span style="color: #ff0000; font-family: 'Noto Serif'; font-size: 16pt;"><b>Проба пера №2</b></span><br />
     Разрыв строки
     </p>
-    <p><img src="http://192.168.0.30:8888/fisfrdo/logo.jpg" style="width: 100mm" /></p>
+
 </body>
 </html>
 '''

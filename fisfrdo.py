@@ -1,5 +1,8 @@
 import openpyxl
 import re
+import tornado.web
+import pdfkit
+import mysql.connector
 
 udo_path = "c:/Users/typo/Documents/!!ГОС_ДИП_УД/УДОСТОВЕРЕНИЯ_ДАННЫЕ/удостоверения.xlsx"
 frdo_shablon = "c:/Users/typo/Documents/!!ГОС_ДИП_УД/!!!ФИСФРДО/Шаблон_апрель_2021.xlsx"
@@ -9,7 +12,7 @@ wb_frdo = openpyxl.load_workbook(filename = frdo_shablon, data_only=True)
 ws_frdo = wb_frdo.active
 
 i = 2
-r = ws_udo["A3499":"N3506"]
+r = ws_udo["A3498":"N3506"]
 if r[i][5].value is not None:
     print(r[i][5].value is not None)
     user = {"gosnomer":r[i][5].value,
